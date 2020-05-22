@@ -94,6 +94,7 @@ const App = ({
                             {e.name}:
                         </label>
                         <input
+                            step="any"
                             type={e.type}
                             name={e.name}
                             className="form-control form-control-lg border-dark"

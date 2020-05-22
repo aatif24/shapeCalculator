@@ -61,7 +61,7 @@ const App = ({ getShapeList, shapeList, loading, setSelectedShape, setStep }) =>
     };
     return (
         <div className="bg-yellow h-100 rounded ">
-            <div className="p-5 h-100">
+            <div className="p-5 h-100 ">
                 <p className="h5 font-weight-bold mb-4">Step 1 - Select Your Shape</p>
                 {loading ? <Loader /> : null}
                 <form

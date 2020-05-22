@@ -63,7 +63,7 @@ const App = ({
 
     return (
         <div className="bg-yellow h-100 rounded ">
-            <div className="p-5 h-100">
+            <div className="p-5 h-100 justify-content-between flex-column d-flex">
                 <p className="h5 font-weight-bold mb-4">Step 3 - Your Result</p>
                 {loading ? <Loader /> : null}
 
@@ -77,20 +77,13 @@ const App = ({
 
                 <div className="mt-5 d-flex justify-content-between">
                     <button
-                        disabled
                         className=" btn flex-fill btn-green font-weight-bold w-50 mr-2"
-                    >
-                        Next
-                    </button>
-                    <button
-                        type="button"
-                        className="btn flex-fill  bg-white font-weight-bold w-50 ml-2"
                         onClick={(e) => {
                             setStep("selectShape");
                             setSelectedShape(false);
                         }}
                     >
-                        Cancel
+                        Start Over
                     </button>
                 </div>
             </div>

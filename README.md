@@ -8,7 +8,7 @@ npm ^6.13.6
 
 ### run `npm install` into root folder to add all required packages to the project
 
-### Shapes are dynamically added to the app, new shape can easily be added with required fields, find shapes data in below json file
+### Shapes are dynamically added to the app, new shape can easily be added with required fields, find shapes data in below json file. Also, this can be fetched using API.
 
 ## `src/data/shapes.json`
 
