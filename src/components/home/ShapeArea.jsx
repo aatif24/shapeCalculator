@@ -42,7 +42,7 @@ const App = ({
     }, []);
 
     let Area = () => {
-        let sd = shapeData;
+        let sd = JSON.parse(JSON.stringify(shapeData));
         for (const key in formData) {
             var myRegExp = new RegExp("{" + key + "}", "g");
             sd.formula = sd.formula.replace(myRegExp, formData[key]);

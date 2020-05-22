@@ -1,5 +1,7 @@
 /* eslint-disable eqeqeq */
-let jsonObj = require("../../data/shapes.json");
+
+import json from "../../data/shapes.json";
+const jsonObj = JSON.parse(JSON.stringify(json));
 export function loading(payload) {
     return { type: "LOADING", payload };
 }
