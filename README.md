@@ -1,8 +1,6 @@
-# run `npm install` to add all required packages to the project
+### run `npm install` to add all required packages to the project
 
-## `npm install`
-
-# Shapes are dynamically added to the app, new shape can easily be added with required fields, find shapes data in below json file
+### Shapes are dynamically added to the app, new shape can easily be added with required fields, find shapes data in below json file
 
 ## `src/data/shapes.json`
 
