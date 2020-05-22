@@ -1,0 +1,69 @@
+[
+    {
+        "id": 1,
+        "name": "Rectangle",
+        "formula": "{width}*{length}",
+        "inputs": [
+            {
+                "name": "width",
+                "type": "number"
+            },
+            {
+                "name": "length",
+                "type": "number"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Circle",
+        "formula": "Math.PI*{radius}*{radius}",
+        "inputs": [
+            {
+                "name": "radius",
+                "type": "number"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Square",
+        "formula": "{width}*{width}",
+        "inputs": [
+            {
+                "name": "width",
+                "type": "number"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Eclipse",
+        "formula": "Math.PI*{x-radius}*{y-radius}",
+        "inputs": [
+            {
+                "name": "x-radius",
+                "type": "number"
+            },
+            {
+                "name": "y-radius",
+                "type": "number"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Triangle",
+        "formula": "({height}*{base})/2",
+        "inputs": [
+            {
+                "name": "base",
+                "type": "number"
+            },
+            {
+                "name": "height",
+                "type": "number"
+            }
+        ]
+    }
+]
