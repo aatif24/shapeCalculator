@@ -1,7 +1,7 @@
 import React from "react";
 import Intro from "../components/home/Intro";
 import ShapeSelector from "../components/home/ShapeSelector";
-import AreaInput from "../components/home/AreaInput";
+import ShapeInput from "../components/home/ShapeInput";
 import ShapeArea from "../components/home/ShapeArea";
 import VerticalBanner from "../components/home/VerticalBanner";
 import { connect } from "react-redux";
@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 /**
- * React hook function 
+ * React hook function
  * @param {*} props
  */
 const App = ({ step }) => {
@@ -40,7 +40,7 @@ const App = ({ step }) => {
             case "selectShape":
                 return <ShapeSelector />;
             case "shapeAreaInput":
-                return <AreaInput />;
+                return <ShapeInput />;
             case "shapeArea":
                 return <ShapeArea />;
 
