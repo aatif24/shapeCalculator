@@ -1,16 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import "../../css/style.css";
-
 import { connect } from "react-redux";
 import Loader from "../Loader";
 import { validateShapeSelection } from "../../helpers";
-/**
- * redux
- */
-
 import { shapes, loading, selectedShape, setStep } from "../../redux/actions/index";
 
+/**
+ * function will return state managed by redux(globally)
+ * @param {*} state
+ */
 const mapStateToProps = (state) => {
     return {
         shapeList: state.index.shapes,
@@ -18,6 +17,10 @@ const mapStateToProps = (state) => {
     };
 };
 
+/**
+ * dispatcher function which dispatches states from action to to stores using reducer
+ * @param {*} dispatch
+ */
 const mapDispatchToProps = (dispatch) => {
     return {
         getShapeList: (payload) => dispatch(shapes(payload)),
@@ -26,7 +29,12 @@ const mapDispatchToProps = (dispatch) => {
         setStep: (payload) => dispatch(setStep(payload)),
     };
 };
-const App = ({ getShapeList, shapeList, loading, setLoading, setSelectedShape, setStep }) => {
+
+/**
+ * React hook function
+ * @param {*} props
+ */
+const App = ({ getShapeList, shapeList, loading, setSelectedShape, setStep }) => {
     useEffect(() => {
         getShapeList();
     }, []);
@@ -40,7 +48,8 @@ const App = ({ getShapeList, shapeList, loading, setLoading, setSelectedShape, s
         let data = {
             shape: formData.get("shape"),
         };
-
+        // validating the dynamic inputs
+        // all are required
         let { status, errorObject } = validateShapeSelection(data);
         if (!status) {
             setFormError(errorObject);

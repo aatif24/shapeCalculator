@@ -1,16 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import "../../css/style.css";
-
 import { connect } from "react-redux";
 import Loader from "../Loader";
+
 import { validateShapeInput } from "../../helpers";
-/**
- * redux
- */
 
 import { loading, selectedShape, setStep, shapeData, formData } from "../../redux/actions/index";
 
+/**
+ * function will return state managed by redux(globally)
+ * @param {*} state
+ */
 const mapStateToProps = (state) => {
     return {
         loading: state.index.loading,
@@ -19,6 +20,10 @@ const mapStateToProps = (state) => {
     };
 };
 
+/**
+ * dispatcher function which dispatches states from action to to stores using reducer
+ * @param {*} dispatch
+ */
 const mapDispatchToProps = (dispatch) => {
     return {
         setLoading: (payload) => dispatch(loading(payload)),
@@ -28,6 +33,11 @@ const mapDispatchToProps = (dispatch) => {
         setFormData: (payload) => dispatch(formData(payload)),
     };
 };
+
+/**
+ * React hook function
+ * @param {*} props
+ */
 const App = ({
     getShapeData,
     selectedShape,
@@ -40,6 +50,7 @@ const App = ({
     const [formError, setFormError] = useState({});
 
     useEffect(() => {
+        //this method will run once
         getShapeData(selectedShape);
     }, []);
 
@@ -52,6 +63,7 @@ const App = ({
             data[name] = value;
         }
 
+        // validating input
         let { status, errorObject } = validateShapeInput(data);
         if (!status) {
             setFormError(errorObject);
@@ -61,6 +73,10 @@ const App = ({
         setStep("shapeArea");
         return;
     };
+
+    /**
+     * dynamic inputs according to selected shape
+     */
     let RenderInputs = () => {
         let returnStatement = [];
         returnStatement.push(
@@ -91,6 +107,7 @@ const App = ({
 
         return returnStatement;
     };
+
     return (
         <div className="bg-yellow h-100 rounded ">
             <div className="p-5 h-100">

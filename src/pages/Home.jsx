@@ -1,17 +1,15 @@
 import React from "react";
-
 import Intro from "../components/home/Intro";
 import ShapeSelector from "../components/home/ShapeSelector";
 import AreaInput from "../components/home/AreaInput";
 import ShapeArea from "../components/home/ShapeArea";
 import VerticalBanner from "../components/home/VerticalBanner";
-
 import { connect } from "react-redux";
 
 /**
- * redux
+ * function will return state managed by redux(globally)
+ * @param {*} state
  */
-
 const mapStateToProps = (state) => {
     return {
         selectedShape: state.index.selectedShape,
@@ -20,10 +18,23 @@ const mapStateToProps = (state) => {
     };
 };
 
+/**
+ * dispatcher function which dispatches states from action to to stores using reducer
+ * @param {*} dispatch
+ */
 const mapDispatchToProps = (dispatch) => {
     return {};
 };
+
+/**
+ * React hook function 
+ * @param {*} props
+ */
 const App = ({ step }) => {
+    /**
+     * fetching steps from STATE to load the appropriate component
+     */
+
     let RenderBlock = () => {
         switch (step) {
             case "selectShape":

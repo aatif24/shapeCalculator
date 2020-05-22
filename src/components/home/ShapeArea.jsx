@@ -1,16 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import "../../css/style.css";
-
 import { connect } from "react-redux";
 import Loader from "../Loader";
-
-/**
- * redux
- */
-
 import { loading, selectedShape, setStep, shapeData } from "../../redux/actions/index";
 
+/**
+ * function will return state managed by redux(globally)
+ * @param {*} state
+ */
 const mapStateToProps = (state) => {
     return {
         loading: state.index.loading,
@@ -20,6 +18,10 @@ const mapStateToProps = (state) => {
     };
 };
 
+/**
+ * dispatcher function which dispatches states from action to to stores using reducer
+ * @param {*} dispatch
+ */
 const mapDispatchToProps = (dispatch) => {
     return {
         setLoading: (payload) => dispatch(loading(payload)),
@@ -28,6 +30,11 @@ const mapDispatchToProps = (dispatch) => {
         setStep: (payload) => dispatch(setStep(payload)),
     };
 };
+
+/**
+ * React hook function
+ * @param {*} props
+ */
 const App = ({
     getShapeInput,
     selectedShape,
@@ -41,12 +48,16 @@ const App = ({
         getShapeInput(selectedShape);
     }, []);
 
+    /**
+     * replacing formula with field value and evaluating the are
+     */
     let Area = () => {
         let sd = JSON.parse(JSON.stringify(shapeData));
         for (const key in formData) {
             var myRegExp = new RegExp("{" + key + "}", "g");
             sd.formula = sd.formula.replace(myRegExp, formData[key]);
         }
+        // eslint-disable-next-line no-eval
         return eval(sd.formula).toFixed(2);
     };
 

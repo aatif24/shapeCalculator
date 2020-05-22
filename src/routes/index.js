@@ -8,14 +8,22 @@ import { routes } from "./routes";
 import Layout from "../layout/Index";
 import Loader from "../components/Loader";
 
-const RouterApp = () => {
+/**
+ * this is a router file which handles the routes and handles the appropriate page/component
+ * with global layout which will render the chile component with ->
+ * @param {props.children}
+ * 
+ * also here private and public routes are also been managed if isPrivate property is set to true
+ * it will redirect to the given url (here its %BASE_URL%/login)
+ */
+
+const RouterApp = ({ a }) => {
     return (
         <div className="App h-100">
             <Router>
                 <Layout>
                     <Suspense fallback={<Loader />}>
-                        <Switch
-                        >
+                        <Switch>
                             {routes
                                 ? routes.map((v, k) => {
                                       return v.isPrivate ? (
@@ -47,6 +55,7 @@ const RouterApp = () => {
         </div>
     );
 };
+
 const PrivateRoute = ({ component: Component, ...rest }) => {
     return (
         <Route
@@ -66,6 +75,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         ></Route>
     );
 };
+
 const NonPrivateRoute = ({ component: Component, ...rest }) => {
     return (
         <Route
@@ -81,6 +91,7 @@ const NonPrivateRoute = ({ component: Component, ...rest }) => {
         ></Route>
     );
 };
+
 const Page404 = ({ component: Component, ...rest }) => (
     <div id="notfound">
         <div className="notfound">
